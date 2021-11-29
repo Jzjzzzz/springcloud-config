@@ -1,2 +1,61 @@
-config:
-  info: "master branch,springcloud-config/config-dev.yml version=3" 
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+  instance:
+    instance-id: payment8080
+    prefer-ip-address: true #访问路径可以显示ip地址
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
+    dbcp2: # 进行数据库连接池的配置
+      min-idle: 10                                  # 数据库连接池的最小维持连接数
+      initial-size: 20                              # 初始化提供的连接数
+      max-total: 50                                 # 最大的连接数
+      max-wait-millis: 200                          # 等待连接获取的最大超时时间
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://110.42.224.240:3306/vblog?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: 6AxUi94j82ICyPkq97HnNVnxdnhBKkZs
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis-plus:
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    use-deprecated-executor: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: false
+#    lazyLoadingEnabled: true
+#    aggressiveLazyLoading: false
+logging:
+  level:
+    root: info
+#    com.gihub.dreamyoung.mprelation: info
+ark:
+  jwt:
+    secret-key: ImV4c.CI6M!TYx%?Mjc4M@zY5
+    token-header: X-Token
+    expiration: 86400
+  cache:
+    type: memory
+    timeout: 10
+    timeunit: minutes
+  druid:
+    url: /druid
+    username: druid
+    password: druid
+    allow: 127.0.0.2, 127.0.0.1
+    deny: 192.1.1.1, 192.1.1.2, 192.1.1.3
+
+#阿里云oss
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    keyId: LTAI5tRYMRSF5FTUEn7HZHDR
+    keySecret: CGboVCVQrXvUIh1Hhlx50zonZRQpv8
+    bucketName: vblog-jzj
