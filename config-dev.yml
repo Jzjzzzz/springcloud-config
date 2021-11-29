@@ -21,7 +21,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://110.42.224.240:3306/vblog?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&useSSL=false
     username: root
-    password: 6AxUi94j82ICyPkq97HnNVnxdnhBKkZs
+    password: 123456
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
 mybatis-plus:
